@@ -33,6 +33,6 @@ let corsOptions = {
     optionSuccessStatus: 200
 }
 app.use(cors());
-// routing
-const routes = require("./routes/api");
-app.use("/api", routes);
+// // routing
+// const routes = require("./routes/route");
+// app.use("/api", routes);
