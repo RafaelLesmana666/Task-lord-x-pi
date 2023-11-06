@@ -2,11 +2,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const dotenv = require('dotenv');
 const { default: mongoose } = require("mongoose");
+const config = process.env;
 
+dotenv.config();
 /* mongodb-server */
 mongoose
-    .connect("mongodb://127.0.0.1:27017/task-lord-x")
+    .connect(config.DB)
     .then(function (resolve, rejected) {
         console.log("koneksi ke database berhasil.. ");
     })
@@ -34,5 +37,5 @@ let corsOptions = {
 }
 app.use(cors());
 // // routing
-// const routes = require("./routes/route");
-// app.use("/api", routes);
+const routes = require("./app/routes/route");
+app.use("/api", routes);

@@ -16,7 +16,7 @@ const UsersSchema = new Schema({
     role:{
         type:String,
         required:true,
-        enum: ['staffAdministrasi','staffTicketing','staffPemasaran','staffKeuangan']
+        enum: ['leader','members','staff']
     },
     token:{
         type:String 

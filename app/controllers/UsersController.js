@@ -1,8 +1,6 @@
-const help = require('../helpers');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const Users = require('../models/Users.js');
-require("dotenv").config();
 
 exports.read = (req,res,next) => {
     
@@ -46,7 +44,7 @@ exports.login = async (req,res,next) => {
      const token = jwt.sign({
          id: user._id,
      }, process.env.API_KEY, {
-         expiresIn: "1m" // expires in 24 hours
+         expiresIn: "2h" // expires in 24 hours
      });
      user.token = token;
      console.log(user);
